@@ -1,17 +1,18 @@
 package com.vehicles.VehiclesProject;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Vehicle {
+    @Id
+    @Column(name = "id", nullable = false)
     private Long id;
+
     private String type;
     private int numberOfWheels;
-    private Engine engine;
-
-    public Vehicle(Long id, String type, int numberOfWheels, Engine engine) {
-        this.id = id;
-        this.type = type;
-        this.numberOfWheels = numberOfWheels;
-        this.engine = engine;
-    }
+    private String engine;
 
     public Long getId() {
         return id;
@@ -19,6 +20,23 @@ public class Vehicle {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Vehicle() {
+
+    }
+
+    public Vehicle(String type, int numberOfWheels, String engine) {
+        this.type = type;
+        this.numberOfWheels = numberOfWheels;
+        this.engine = engine;
+    }
+
+    public Vehicle(Long id, String type, int numberOfWheels, String engine) {
+        this.id = id;
+        this.type = type;
+        this.numberOfWheels = numberOfWheels;
+        this.engine = engine;
     }
 
     public String getType() {
@@ -37,11 +55,11 @@ public class Vehicle {
         this.numberOfWheels = numberOfWheels;
     }
 
-    public Engine getEngine() {
+    public String getEngine() {
         return engine;
     }
 
-    public void setEngine(Engine engine) {
+    public void setEngine(String engine) {
         this.engine = engine;
     }
 }

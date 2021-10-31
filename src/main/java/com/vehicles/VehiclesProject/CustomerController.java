@@ -1,8 +1,6 @@
 package com.vehicles.VehiclesProject;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,5 +27,19 @@ public class CustomerController {
         return new ArrayList<>(customers.values());
     }
 
+    @PostMapping()
+    public Customer postCustomer(@RequestBody Customer newCustomer) {
+        Long id = idCount.incrementAndGet();
 
+        newCustomer.setId(id);
+
+        customers.put(id, newCustomer);
+
+        return newCustomer;
+    }
+
+    @GetMapping("/{id}")
+    public Customer getById(@PathVariable Long id) {
+        return customers.get(id);
+    }
 }

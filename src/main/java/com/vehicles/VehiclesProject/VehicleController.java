@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 @RequestMapping("/vehicles")
 public class VehicleController {
-    private AtomicLong idCount = new AtomicLong();
-    private Map<Long, Vehicle> vehicles = new HashMap<>();
+    private final AtomicLong idCount = new AtomicLong();
+    private final Map<Long, Vehicle> vehicles = new HashMap<>();
 
     public VehicleController() {
         Vehicle newVehicle = new Vehicle( "Car", 4, "Gas");

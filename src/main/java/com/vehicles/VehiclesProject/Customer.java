@@ -14,7 +14,6 @@ public class Customer {
     @Column(name = "id", nullable = false)
     private Long id;
     private String name;
-    private final Map<Long, Vehicle> rentedVehicles = new HashMap<>();
 
     public Customer() {
 
@@ -43,15 +42,5 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Vehicle addVehicle(Long id, Vehicle newVehicle) {
-        rentedVehicles.put(id, newVehicle);
-
-        return newVehicle;
-    }
-
-    public List<Vehicle> getVehicles() {
-        return new ArrayList<Vehicle>(rentedVehicles.values());
     }
 }

@@ -1,12 +1,8 @@
-package com.vehicles.VehiclesProject;
+package com.vehicles.VehiclesProject.customer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Entity
 public class Customer {

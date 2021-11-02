@@ -1,5 +1,6 @@
-package com.vehicles.VehiclesProject;
+package com.vehicles.VehiclesProject.vehicle;
 
+import com.vehicles.VehiclesProject.vehicle.Vehicle;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -42,6 +43,32 @@ public class VehicleController {
     @GetMapping("/{id}")
     public Vehicle vehicle(@PathVariable Long id) {
         return vehicles.get(id);
+    }
+
+    @PutMapping("/{id}")
+    public Vehicle updateVehicle(@PathVariable Long id, @RequestBody Vehicle updateData) {
+        Vehicle vehicle = vehicles.get(id);
+
+        if (vehicle == null) {
+            return vehicle;
+        }
+
+        if (updateData.getType() != null) {
+            vehicle.setType(updateData.getType());
+        }
+        if (updateData.getNumberOfWheels() != null) {
+            vehicle.setNumberOfWheels(updateData.getNumberOfWheels());
+        }
+        if (updateData.getEngine() != null) {
+            vehicle.setEngine(updateData.getEngine());
+        }
+
+        return vehicle;
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteVehicle(@PathVariable Long id) {
+        vehicles.remove(id);
     }
 
 }

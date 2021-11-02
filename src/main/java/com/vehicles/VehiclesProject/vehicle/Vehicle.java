@@ -1,4 +1,4 @@
-package com.vehicles.VehiclesProject;
+package com.vehicles.VehiclesProject.vehicle;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ public class Vehicle {
     private Long id;
 
     private String type;
-    private int numberOfWheels;
+    private Integer numberOfWheels;
     private String engine;
 
     public Long getId() {
@@ -47,7 +47,7 @@ public class Vehicle {
         this.type = type;
     }
 
-    public int getNumberOfWheels() {
+    public Integer getNumberOfWheels() {
         return numberOfWheels;
     }
 
